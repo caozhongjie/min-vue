@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <h3>{{msg}}</h3>
+      <ul>
+          <li>1</li>
+          <li>2</li>
+      </ul>
+      <p>{{debug}}</p>
+      <div v-text="msg"></div>
+      <p v-text="person.name"></p>
+      <p v-text="msg"></p>
+      <input type="text" v-model="msg">
+      <input type="text" v-model="person.name">
+      <div v-html="htmlStr"></div>
+      <button v-on:click='compileFun'>11111111</button>
+      <button @click='compileFun1'>22222</button>
+  </div>
+
+</body>
+</html>
+<script src="./myvue.js"></script>
+<script src="Observer.js"></script>
+<script>
+  let vm = new Mvue({
+      el: '#app',
+      data: {
+          msg: 'aaa',
+          debug: 'bbbb',
+          bingo: true,
+          person: {
+              name: '张三',
+              age: 18
+          },
+          htmlStr: '<h3>666666666</h3>'
+      },
+      methods :{
+          compileFun() {
+              console.log('7777777777')
+          },
+          compileFun1() {
+              console.log('8888887')
+              this.$data.msg = '11111111117777777777777'
+          }
+      }
+  })
+</script>
